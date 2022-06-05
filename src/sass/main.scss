@@ -1,0 +1,160 @@
+@use './utilities/colors' as *;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+}
+
+.section {
+	z-index: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('../../dist/img/bg\ mobile.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 4em 2em;
+		margin: 0 1em;
+		border-radius: 8px;
+		box-shadow: 0 0 100px $wrapper-color;
+		background-color: $wrapper-color;
+		background-image: $wrapper-gradient;
+	}
+
+	&__shadow {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	&__lamp {
+		width: 70%;
+		cursor: pointer;
+		transform: translateY(0);
+		animation: lamp-animation 5s ease-out infinite;
+	}
+
+	&__h1 {
+		font-size: 1.5rem;
+		text-align: center;
+		margin-bottom: 2em;
+	}
+
+	&__error {
+		margin-top: 0.5em;
+		color: $error-color;
+		font-weight: 100;
+	}
+
+	&__answer {
+		margin-top: 1em;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	&__input {
+		margin-top: 2em;
+		padding: 1em 2em;
+		border: none;
+		border-radius: 6px;
+		width: 100%;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	&__input:focus {
+		outline: 1px solid $wrapper-color;
+	}
+}
+
+@keyframes lamp-animation {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(15px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@media (min-width: 375px) {
+	.section {
+		&__h1 {
+			font-size: 2rem;
+		}
+		&__answer {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.section {
+		&__h1 {
+			font-size: 3rem;
+		}
+		&__answer {
+			font-size: 3rem;
+		}
+		&__error {
+			font-size: 2.5rem;
+		}
+		&__input {
+			font-size: 1.5rem;
+		}
+		&__lamp {
+			width: 60%;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.section {
+		background-image: url('../../dist/img/bg\ desktop.jpg');
+
+		&__h1 {
+			font-size: 3rem;
+		}
+		&__answer {
+			font-size: 3rem;
+		}
+		&__error {
+			font-size: 3rem;
+		}
+		&__input {
+			font-size: 1.7rem;
+		}
+		&__wrapper {
+			padding: 2em 4em;
+		}
+	}
+}
