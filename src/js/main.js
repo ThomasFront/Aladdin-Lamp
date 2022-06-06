@@ -24,6 +24,7 @@ const generateAnswer = () => {
 		const randomNumber = Math.floor(Math.random() * answerArr.length)
 		answer.textContent = answerArr[randomNumber]
 		error.textContent = ''
+		input.value = ''
 	} else if (input.value == '') {
 		error.textContent = 'Musisz zadać jakieś pytanie!'
 		answer.textContent = ''
